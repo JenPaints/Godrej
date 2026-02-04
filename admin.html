@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godrej Yelahanka - Lead Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #1a365d;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3182ce;
+        }
+
+        .stat-card h3 {
+            color: #4a5568;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            color: #1a365d;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .leads-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            color: #1a365d;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .refresh-btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .refresh-btn:hover {
+            background: #2c5282;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f7fafc;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            color: #2d3748;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-new {
+            background: #e6fffa;
+            color: #065f46;
+        }
+
+        .status-contacted {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-qualified {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #4a5568;
+        }
+
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #4a5568;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: #cbd5e0;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-building"></i> Godrej Yelahanka</h1>
+            <p>Lead Management Dashboard</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Leads</h3>
+                <div class="number" id="totalLeads">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Today's Leads</h3>
+                <div class="number" id="todayLeads">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>This Week</h3>
+                <div class="number" id="weekLeads">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>This Month</h3>
+                <div class="number" id="monthLeads">-</div>
+            </div>
+        </div>
+
+        <div class="leads-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> Recent Leads</h2>
+                <button class="refresh-btn" onclick="loadLeads()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+            <div class="table-container">
+                <div id="leadsContent">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading leads...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://nlssoryytnbykfhsnktb.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sc3Nvcnl5dG5ieWtmaHNua3RiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MjE4NzAsImV4cCI6MjA1Mzk5Nzg3MH0.Qlkp4Qpob0AztQsrYfF9Sg_XcSZsgk6';
+        
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Load statistics
+        async function loadStats() {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('leads')
+                    .select('created_at, source');
+
+                if (error) throw error;
+
+                const now = new Date();
+                const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+                const totalLeads = data.length;
+                const todayLeads = data.filter(lead => new Date(lead.created_at) >= today).length;
+                const weekLeads = data.filter(lead => new Date(lead.created_at) >= weekAgo).length;
+                const monthLeads = data.filter(lead => new Date(lead.created_at) >= monthAgo).length;
+
+                document.getElementById('totalLeads').textContent = totalLeads;
+                document.getElementById('todayLeads').textContent = todayLeads;
+                document.getElementById('weekLeads').textContent = weekLeads;
+                document.getElementById('monthLeads').textContent = monthLeads;
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load leads
+        async function loadLeads() {
+            const contentDiv = document.getElementById('leadsContent');
+            contentDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading leads...</div>';
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from('leads')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(50);
+
+                if (error) throw error;
+
+                if (data.length === 0) {
+                    contentDiv.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <h3>No leads yet</h3>
+                            <p>Leads will appear here when visitors submit the contact forms.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const tableHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Configuration</th>
+                                <th>Budget</th>
+                                <th>Source</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.map(lead => `
+                                <tr>
+                                    <td><strong>${lead.name}</strong></td>
+                                    <td><a href="tel:${lead.phone}">${lead.phone}</a></td>
+                                    <td><a href="mailto:${lead.email}">${lead.email}</a></td>
+                                    <td>${lead.configuration || '-'}</td>
+                                    <td>${lead.budget || '-'}</td>
+                                    <td>${lead.source}</td>
+                                    <td>${new Date(lead.created_at).toLocaleDateString()}</td>
+                                    <td><span class="status-badge status-${lead.status || 'new'}">${lead.status || 'new'}</span></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+
+                contentDiv.innerHTML = tableHTML;
+            } catch (error) {
+                console.error('Error loading leads:', error);
+                contentDiv.innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Error loading leads: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStats();
+            loadLeads();
+            
+            // Auto-refresh every 30 seconds
+            setInterval(() => {
+                loadStats();
+                loadLeads();
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

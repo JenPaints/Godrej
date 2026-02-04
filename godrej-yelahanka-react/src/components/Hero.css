@@ -1,0 +1,176 @@
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider, .hero-slide {
+    height: 100%;
+    width: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-overlay-card {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 3.5rem;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    line-height: 1.1;
+}
+
+.hero-location {
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-rera {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.hero-details {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.detail-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.btn-primary-glow {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-primary-glow:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255,0,0,0.2);
+}
+
+@media (max-width: 991px) {
+    .hero-overlay-card {
+        left: 5%;
+        right: 5%;
+        padding: 2.5rem;
+        max-width: 90%;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 90vh;
+    }
+
+    .hero-overlay-card {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2rem;
+        max-width: 90%;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-details {
+        gap: 1.5rem;
+        flex-direction: column;
+        padding: 1.5rem 0;
+    }
+
+    .detail-value {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary-glow {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-overlay-card {
+        padding: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-badge {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+    }
+
+    .hero-location {
+        font-size: 0.85rem;
+    }
+}

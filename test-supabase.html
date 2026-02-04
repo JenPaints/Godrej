@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .credentials {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Supabase Connection Test</h1>
+        
+        <div class="info">
+            <strong>Instructions:</strong>
+            <ol>
+                <li>Go to your Supabase project dashboard</li>
+                <li>Navigate to Settings → API</li>
+                <li>Copy your Project URL and anon/public key</li>
+                <li>Paste them below and test the connection</li>
+            </ol>
+        </div>
+
+        <div class="credentials">
+            <h3>📋 How to find your Supabase credentials:</h3>
+            <p>1. Go to <a href="https://supabase.com/dashboard" target="_blank">https://supabase.com/dashboard</a></p>
+            <p>2. Select your project: <code>nlssoryytnbykfhsnktb</code></p>
+            <p>3. Go to Settings → API</p>
+            <p>4. Copy the <strong>Project URL</strong> and <strong>anon public</strong> key</p>
+        </div>
+
+        <form id="testForm">
+            <div class="form-group">
+                <label for="projectUrl">Project URL:</label>
+                <input type="url" id="projectUrl" placeholder="https://your-project.supabase.co" 
+                       value="https://nlssoryytnbykfhsnktb.supabase.co">
+            </div>
+            
+            <div class="form-group">
+                <label for="anonKey">Anon/Public Key:</label>
+                <textarea id="anonKey" rows="3" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
+            </div>
+            
+            <button type="submit">🧪 Test Connection</button>
+        </form>
+
+        <div id="results"></div>
+
+        <div class="info" style="margin-top: 30px;">
+            <h3>🗄️ Next Steps:</h3>
+            <p>Once connection is successful, you'll need to create the database tables. Run this SQL in your Supabase SQL Editor:</p>
+            <details>
+                <summary>Click to see SQL commands</summary>
+                <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto; margin-top: 10px;">
+-- Create leads table
+CREATE TABLE IF NOT EXISTS leads (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    configuration VARCHAR(50),
+    budget VARCHAR(50),
+    message TEXT,
+    source VARCHAR(50) NOT NULL DEFAULT 'website',
+    project VARCHAR(100) NOT NULL DEFAULT 'Godrej Yelahanka',
+    status VARCHAR(20) DEFAULT 'new',
+    utm_source VARCHAR(100),
+    utm_medium VARCHAR(100),
+    utm_campaign VARCHAR(100),
+    referrer TEXT,
+    user_agent TEXT,
+    ip_address INET,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Enable Row Level Security
+ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+
+-- Allow public to insert leads
+CREATE POLICY "Allow public lead insertion" ON leads
+    FOR INSERT TO anon
+    WITH CHECK (true);
+                </pre>
+            </details>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const projectUrl = document.getElementById('projectUrl').value.trim();
+            const anonKey = document.getElementById('anonKey').value.trim();
+            const resultsDiv = document.getElementById('results');
+            
+            if (!projectUrl || !anonKey) {
+                resultsDiv.innerHTML = '<div class="error">❌ Please fill in both Project URL and Anon Key</div>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = '<div class="info">🔄 Testing connection...</div>';
+            
+            try {
+                // Test Supabase connection
+                const supabase = window.supabase.createClient(projectUrl, anonKey);
+                
+                // Try to query the leads table (this will fail if table doesn't exist, but connection will work)
+                const { data, error } = await supabase
+                    .from('leads')
+                    .select('count', { count: 'exact', head: true });
+                
+                if (error) {
+                    if (error.message.includes('relation "public.leads" does not exist')) {
+                        resultsDiv.innerHTML = `
+                            <div class="success">✅ Connection successful! But leads table doesn't exist yet.</div>
+                            <div class="info">📝 Please run the SQL commands above to create the table.</div>
+                            <div class="credentials">
+                                <h4>✅ Working credentials:</h4>
+                                <p><strong>Project URL:</strong> <code>${projectUrl}</code></p>
+                                <p><strong>Anon Key:</strong> <code>${anonKey.substring(0, 50)}...</code></p>
+                            </div>
+                        `;
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="success">✅ Connection successful! Table exists and is accessible.</div>
+                        <div class="credentials">
+                            <h4>✅ Working credentials:</h4>
+                            <p><strong>Project URL:</strong> <code>${projectUrl}</code></p>
+                            <p><strong>Anon Key:</strong> <code>${anonKey.substring(0, 50)}...</code></p>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Connection test failed:', error);
+                resultsDiv.innerHTML = `
+                    <div class="error">❌ Connection failed: ${error.message}</div>
+                    <div class="info">
+                        <p>Common issues:</p>
+                        <ul>
+                            <li>Invalid Project URL or API key</li>
+                            <li>Project is paused or deleted</li>
+                            <li>Network connectivity issues</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

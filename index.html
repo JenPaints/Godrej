@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godrej Yelahanka | 3, 3.5 & 4.5 BHK Luxury Apartments in North Bengaluru</title>
+    <meta name="description" content="Godrej Yelahanka offers premium 3, 3.5 & 4.5 BHK luxury apartments in North Bengaluru. Experience world-class amenities and seamless connectivity.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#">
+                    <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/logo-1.png" alt="Godrej Yelahanka Logo">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#configurations" class="nav-link">Configuration</a>
+                <a href="#amenities" class="nav-link">Amenities</a>
+                <a href="#plans" class="nav-link">Plans</a>
+                <a href="#connectivity" class="nav-link">Connectivity</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#terms" class="nav-link">Terms</a>
+                <a href="#about" class="nav-link">About Developer</a>
+            </div>
+            <div class="nav-actions">
+                <a href="tel:+919844935531" class="nav-phone">
+                    <i class="fas fa-phone-alt"></i> +91 9844935531
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/banner-web-3.jpg');"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/banner-web-2-2.jpg');"></div>
+        </div>
+
+        <div class="hero-overlay-card animate-up">
+            <div class="hero-badge">NEW LAUNCH</div>
+            <h1>Godrej Yelahanka</h1>
+            <div class="hero-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Yelahanka, North Bengaluru</span>
+            </div>
+            <p class="hero-rera">
+                RERA Registration No: Coming Soon
+            </p>
+            <div class="hero-details">
+                <div class="detail-item">
+                    <span class="detail-label">Configuration</span>
+                    <span class="detail-value">3, 3.5 & 4.5 BHK</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Starting Price</span>
+                    <span class="detail-value">₹ 2.88 Cr*</span>
+                </div>
+            </div>
+            <button class="btn-primary-glow" onclick="openLeadForm()">Request Price List</button>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section-padding textured-bg">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-text animate-on-scroll">
+                    <span class="section-subtitle">Exquisite Living</span>
+                    <h2>Project Overview</h2>
+                    <p>Godrej Yelahanka in Yelahanka, North Bangalore, is a premium residential project by Godrej Properties located in a rapidly growing and well-connected suburb of Bengaluru. Spread over about 10 acres, the development features thoughtfully designed 3, 3.5, and 4.5 BHK apartments across multiple high-rise towers with modern layouts that offer abundant natural light and ventilation.</p>
+                    <p>Residents can enjoy a wide range of world-class amenities including a clubhouse, swimming pool, gym, landscaped gardens, children’s play zones, and community spaces for balanced urban living.</p>
+                    <div class="downloads-flex">
+                        <button class="btn-download" onclick="openLeadForm()">
+                            <i class="fas fa-file-pdf"></i> Brochure
+                        </button>
+                        <button class="btn-download" onclick="openLeadForm()">
+                            <i class="fas fa-layer-group"></i> Floor Plan
+                        </button>
+                    </div>
+                </div>
+                <div class="overview-visual animate-on-scroll">
+                    <div class="image-wrapper">
+                        <img src="assets/godrej-avenues-2.jpg" alt="Godrej Yelahanka Overview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section id="configurations" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Choose Your Home</span>
+                <h2>Configurations</h2>
+            </div>
+            <div class="config-grid">
+                <div class="config-card animate-on-scroll">
+                    <div class="config-header">
+                        <h3>3 BHK Premium</h3>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-stat">
+                            <span class="stat-label">Saleable Area</span>
+                            <span class="stat-value">~1600 Sq.Ft.*</span>
+                        </div>
+                        <div class="config-price">
+                            <span class="price-label">Price Starts From</span>
+                            <span class="price-value">₹ 2.88 Cr*</span>
+                        </div>
+                    </div>
+                    <button class="btn-outline-dark" onclick="openLeadForm()">Enquire Now</button>
+                </div>
+                <div class="config-card animate-on-scroll">
+                    <div class="config-header">
+                        <h3>3 BHK Luxe</h3>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-stat">
+                            <span class="stat-label">Saleable Area</span>
+                            <span class="stat-value">~1900 Sq.Ft.*</span>
+                        </div>
+                        <div class="config-price">
+                            <span class="price-label">Price Starts From</span>
+                            <span class="price-value">₹ 3.42 Cr*</span>
+                        </div>
+                    </div>
+                    <button class="btn-outline-dark" onclick="openLeadForm()">Enquire Now</button>
+                </div>
+                <div class="config-card animate-on-scroll">
+                    <div class="config-header">
+                        <h3>3.5 BHK Luxe</h3>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-stat">
+                            <span class="stat-label">Saleable Area</span>
+                            <span class="stat-value">~2150 Sq.Ft.*</span>
+                        </div>
+                        <div class="config-price">
+                            <span class="price-label">Price Starts From</span>
+                            <span class="price-value">₹ 3.87 Cr*</span>
+                        </div>
+                    </div>
+                    <button class="btn-outline-dark" onclick="openLeadForm()">Enquire Now</button>
+                </div>
+                <div class="config-card animate-on-scroll">
+                    <div class="config-header">
+                        <h3>4.5 BHK Luxe</h3>
+                    </div>
+                    <div class="config-body">
+                        <div class="config-stat">
+                            <span class="stat-label">Saleable Area</span>
+                            <span class="stat-value">~2500 Sq.Ft.*</span>
+                        </div>
+                        <div class="config-price">
+                            <span class="price-label">Price Starts From</span>
+                            <span class="price-value">₹ 4.5 Cr*</span>
+                        </div>
+                    </div>
+                    <button class="btn-outline-dark" onclick="openLeadForm()">Enquire Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="section-padding textured-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">World-Class Facilities</span>
+                <h2>Amenities</h2>
+                <p class="section-desc">Immerse yourself in a lifestyle of luxury with carefully curated amenities designed for every age group.</p>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-item animate-on-scroll">
+                    <div class="amenity-img-box">
+                        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/amen-1-6.jpg" alt="Clubhouse">
+                    </div>
+                    <div class="amenity-info">
+                        <h3>Grand Clubhouse</h3>
+                    </div>
+                </div>
+                <div class="amenity-item animate-on-scroll">
+                    <div class="amenity-img-box">
+                        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/amen-2-7.jpg" alt="Swimming Pool">
+                    </div>
+                    <div class="amenity-info">
+                        <h3>Infinity Pool</h3>
+                    </div>
+                </div>
+                <div class="amenity-item animate-on-scroll">
+                    <div class="amenity-img-box">
+                        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/amen-3-8.jpg" alt="Gymnasium">
+                    </div>
+                    <div class="amenity-info">
+                        <h3>Fitness Studio</h3>
+                    </div>
+                </div>
+                <div class="amenity-item animate-on-scroll">
+                    <div class="amenity-img-box">
+                        <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/amen-4-9.jpg" alt="Children's Play Area">
+                    </div>
+                    <div class="amenity-info">
+                        <h3>Kids' Play Zone</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Section -->
+    <section id="plans" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Architectural Excellence</span>
+                <h2>Floor Plans & Layouts</h2>
+                <p class="section-desc">Thoughtfully designed homes with optimal space utilization and premium finishes</p>
+            </div>
+            
+            <!-- Master Plan Section -->
+            <div class="master-plan-section animate-on-scroll">
+                <div class="master-plan-grid">
+                    <div class="master-plan-content">
+                        <h3>Master Plan Layout</h3>
+                        <p>Godrej Yelahanka is strategically planned across 10 acres with multiple towers, landscaped gardens, and world-class amenities. The master plan ensures optimal utilization of space while maintaining privacy and tranquility.</p>
+                        <div class="master-plan-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-building"></i>
+                                <div>
+                                    <strong>Multiple Towers</strong>
+                                    <span>3B+G+15 Floor Structure</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-tree"></i>
+                                <div>
+                                    <strong>Green Spaces</strong>
+                                    <span>70% Open Area</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-home"></i>
+                                <div>
+                                    <strong>Total Units</strong>
+                                    <span>800+ Premium Apartments</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-outline-dark" onclick="openLeadForm()">
+                            <i class="fas fa-download"></i> Download Master Plan
+                        </button>
+                    </div>
+                    <div class="master-plan-image">
+                        <div class="plan-image-container" onclick="openLeadForm()">
+                            <img src="assets/Godrej-Yelahanka-Master-plan-r3nrhe2hsbfwygt9kn0k62khwk4slxkrxn4uvau8xq.webp" alt="Godrej Yelahanka Master Plan">
+                            <div class="image-overlay">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Click for More Info</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit Floor Plans -->
+            <div class="floor-plans-wrapper animate-on-scroll">
+                <div class="plans-tabs">
+                    <button class="tab-btn active" data-type="3bhk-1600">3 BHK - 1600 Sq.Ft</button>
+                    <button class="tab-btn" data-type="3bhk-1900">3 BHK - 1900 Sq.Ft</button>
+                    <button class="tab-btn" data-type="3.5bhk">3.5 BHK - 2150 Sq.Ft</button>
+                    <button class="tab-btn" data-type="4.5bhk">4.5 BHK - 2500 Sq.Ft</button>
+                </div>
+                
+                <!-- 3 BHK 1600 Sq.Ft Plan -->
+                <div class="plan-content active" id="plan-3bhk-1600">
+                    <div class="plan-display-grid">
+                        <div class="plan-image-section">
+                            <div class="plan-image-container" onclick="openLeadForm()">
+                                <img src="assets/godrej-yelahanka-4-bhk-floor-plan.webp" alt="3 BHK 1600 Sq.Ft Floor Plan">
+                                <div class="image-overlay">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Click for More Info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-details-section">
+                            <div class="plan-header">
+                                <h3>3 BHK Premium</h3>
+                                <div class="plan-area">1600 Sq.Ft Built-Up Area</div>
+                                <div class="plan-price">Starting from ₹2.70 Cr*</div>
+                            </div>
+                            
+                            <div class="plan-specifications">
+                                <h4>Specifications</h4>
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <i class="fas fa-bed"></i>
+                                        <div>
+                                            <strong>Bedrooms</strong>
+                                            <span>3 Master Bedrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bath"></i>
+                                        <div>
+                                            <strong>Bathrooms</strong>
+                                            <span>3 Premium Bathrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <div>
+                                            <strong>Kitchen</strong>
+                                            <span>Modular Kitchen</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-couch"></i>
+                                        <div>
+                                            <strong>Living</strong>
+                                            <span>Spacious Living & Dining</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-seedling"></i>
+                                        <div>
+                                            <strong>Balcony</strong>
+                                            <span>2 Premium Balconies</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-warehouse"></i>
+                                        <div>
+                                            <strong>Utility</strong>
+                                            <span>Separate Utility Area</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-features">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Vastu Compliant Design</li>
+                                    <li><i class="fas fa-check"></i> Cross Ventilation</li>
+                                    <li><i class="fas fa-check"></i> Premium Vitrified Tiles</li>
+                                    <li><i class="fas fa-check"></i> Branded Fittings & Fixtures</li>
+                                    <li><i class="fas fa-check"></i> Ample Natural Light</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="openLeadForm()">
+                                    <i class="fas fa-calendar-alt"></i> Schedule Site Visit
+                                </button>
+                                <button class="btn-outline-dark" onclick="openLeadForm()">
+                                    <i class="fas fa-download"></i> Download Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 BHK 1900 Sq.Ft Plan -->
+                <div class="plan-content" id="plan-3bhk-1900">
+                    <div class="plan-display-grid">
+                        <div class="plan-image-section">
+                            <div class="plan-image-container" onclick="openLeadForm()">
+                                <img src="assets/godrej-yelahanka-4-bhk-floor-plan.webp" alt="3 BHK 1900 Sq.Ft Floor Plan">
+                                <div class="image-overlay">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Click for More Info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-details-section">
+                            <div class="plan-header">
+                                <h3>3 BHK Luxe</h3>
+                                <div class="plan-area">1900 Sq.Ft Built-Up Area</div>
+                                <div class="plan-price">Starting from ₹3.42 Cr*</div>
+                            </div>
+                            
+                            <div class="plan-specifications">
+                                <h4>Specifications</h4>
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <i class="fas fa-bed"></i>
+                                        <div>
+                                            <strong>Bedrooms</strong>
+                                            <span>3 Large Master Bedrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bath"></i>
+                                        <div>
+                                            <strong>Bathrooms</strong>
+                                            <span>3 Premium + 1 Powder Room</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <div>
+                                            <strong>Kitchen</strong>
+                                            <span>Premium Modular Kitchen</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-couch"></i>
+                                        <div>
+                                            <strong>Living</strong>
+                                            <span>Expansive Living & Dining</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-seedling"></i>
+                                        <div>
+                                            <strong>Balcony</strong>
+                                            <span>3 Premium Balconies</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-home"></i>
+                                        <div>
+                                            <strong>Study</strong>
+                                            <span>Dedicated Study Room</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-features">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Vastu Compliant Design</li>
+                                    <li><i class="fas fa-check"></i> Corner Unit Advantage</li>
+                                    <li><i class="fas fa-check"></i> Premium Marble Flooring</li>
+                                    <li><i class="fas fa-check"></i> Designer Lighting</li>
+                                    <li><i class="fas fa-check"></i> Walk-in Wardrobes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="openLeadForm()">
+                                    <i class="fas fa-calendar-alt"></i> Schedule Site Visit
+                                </button>
+                                <button class="btn-outline-dark" onclick="openLeadForm()">
+                                    <i class="fas fa-download"></i> Download Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.5 BHK Plan -->
+                <div class="plan-content" id="plan-3.5bhk">
+                    <div class="plan-display-grid">
+                        <div class="plan-image-section">
+                            <div class="plan-image-container" onclick="openLeadForm()">
+                                <img src="assets/godrej-yelahanka-4-bhk-floor-plan.webp" alt="3.5 BHK Floor Plan">
+                                <div class="image-overlay">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Click for More Info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-details-section">
+                            <div class="plan-header">
+                                <h3>3.5 BHK Luxe</h3>
+                                <div class="plan-area">2150 Sq.Ft Built-Up Area</div>
+                                <div class="plan-price">Starting from ₹3.87 Cr*</div>
+                            </div>
+                            
+                            <div class="plan-specifications">
+                                <h4>Specifications</h4>
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <i class="fas fa-bed"></i>
+                                        <div>
+                                            <strong>Bedrooms</strong>
+                                            <span>3 Master + 1 Guest Room</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bath"></i>
+                                        <div>
+                                            <strong>Bathrooms</strong>
+                                            <span>4 Premium Bathrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <div>
+                                            <strong>Kitchen</strong>
+                                            <span>Island Kitchen Design</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-couch"></i>
+                                        <div>
+                                            <strong>Living</strong>
+                                            <span>Grand Living & Dining</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-seedling"></i>
+                                        <div>
+                                            <strong>Balcony</strong>
+                                            <span>3 Large Balconies</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-home"></i>
+                                        <div>
+                                            <strong>Family Lounge</strong>
+                                            <span>Separate Family Area</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-features">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Premium Corner Units</li>
+                                    <li><i class="fas fa-check"></i> Double Height Ceiling</li>
+                                    <li><i class="fas fa-check"></i> Italian Marble Flooring</li>
+                                    <li><i class="fas fa-check"></i> Smart Home Features</li>
+                                    <li><i class="fas fa-check"></i> Private Lift Lobby</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="openLeadForm()">
+                                    <i class="fas fa-calendar-alt"></i> Schedule Site Visit
+                                </button>
+                                <button class="btn-outline-dark" onclick="openLeadForm()">
+                                    <i class="fas fa-download"></i> Download Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.5 BHK Plan -->
+                <div class="plan-content" id="plan-4.5bhk">
+                    <div class="plan-display-grid">
+                        <div class="plan-image-section">
+                            <div class="plan-image-container" onclick="openLeadForm()">
+                                <img src="assets/godrej-yelahanka-4-bhk-floor-plan.webp" alt="4.5 BHK Floor Plan">
+                                <div class="image-overlay">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Click for More Info</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-details-section">
+                            <div class="plan-header">
+                                <h3>4.5 BHK Penthouse</h3>
+                                <div class="plan-area">2500 Sq.Ft Built-Up Area</div>
+                                <div class="plan-price">Starting from ₹4.50 Cr*</div>
+                            </div>
+                            
+                            <div class="plan-specifications">
+                                <h4>Specifications</h4>
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <i class="fas fa-bed"></i>
+                                        <div>
+                                            <strong>Bedrooms</strong>
+                                            <span>4 Master + 1 Guest Suite</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bath"></i>
+                                        <div>
+                                            <strong>Bathrooms</strong>
+                                            <span>5 Luxury Bathrooms</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <div>
+                                            <strong>Kitchen</strong>
+                                            <span>Gourmet Kitchen + Pantry</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-couch"></i>
+                                        <div>
+                                            <strong>Living</strong>
+                                            <span>Palatial Living Spaces</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-seedling"></i>
+                                        <div>
+                                            <strong>Terrace</strong>
+                                            <span>Private Terrace Garden</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-briefcase"></i>
+                                        <div>
+                                            <strong>Study</strong>
+                                            <span>Executive Home Office</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-features">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Penthouse Privileges</li>
+                                    <li><i class="fas fa-check"></i> Private Terrace Access</li>
+                                    <li><i class="fas fa-check"></i> Premium Imported Finishes</li>
+                                    <li><i class="fas fa-check"></i> Home Automation</li>
+                                    <li><i class="fas fa-check"></i> Dedicated Parking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-actions">
+                                <button class="btn-primary" onclick="openLeadForm()">
+                                    <i class="fas fa-calendar-alt"></i> Schedule Site Visit
+                                </button>
+                                <button class="btn-outline-dark" onclick="openLeadForm()">
+                                    <i class="fas fa-download"></i> Download Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connectivity Section -->
+    <section id="connectivity" class="section-padding textured-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Perfectly Located</span>
+                <h2>Connectivity</h2>
+            </div>
+            <div class="connectivity-grid">
+                <div class="map-box animate-on-scroll">
+                    <div class="blurred-map-container" onclick="openLeadForm()">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7234567890123!2d77.6065559!3d13.1145652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae19222fe326f3%3A0x6581d42f67e22d80!2sService%20Rd%2C%20Palanahalli%2C%20Maruthi%20Nagar%2C%20Yelahanka%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1643723400000!5m2!1sen!2sin&markers=color:red%7Clabel:G%7C13.1145548,77.6065237" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <div class="map-overlay">
+                            <div class="overlay-content">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>View Location Details</h3>
+                                <p>Click to get detailed connectivity information</p>
+                                <div class="overlay-btn">
+                                    <i class="fas fa-info-circle"></i>
+                                    Request Info
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-details animate-on-scroll">
+                    <div class="loc-tabs">
+                        <div class="loc-category">
+                            <h4><i class="fas fa-plane"></i> Transport</h4>
+                            <ul>
+                                <li>International Airport <span>20 Min</span></li>
+                                <li>Yelahanka Junction <span>5 Min</span></li>
+                                <li>NH 44 (Bellary Road) <span>5 Min</span></li>
+                            </ul>
+                        </div>
+                        <div class="loc-category">
+                            <h4><i class="fas fa-building"></i> IT Hubs</h4>
+                            <ul>
+                                <li>Manyata Tech Park <span>15 Min</span></li>
+                                <li>Kirloskar Business Park <span>10 Min</span></li>
+                                <li>Ecopolis SEZ <span>10 Min</span></li>
+                            </ul>
+                        </div>
+                        <div class="loc-category">
+                            <h4><i class="fas fa-university"></i> Education</h4>
+                            <ul>
+                                <li>Ryan International <span>8 Min</span></li>
+                                <li>Vidyashilp Academy <span>10 Min</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Visual Experience</span>
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-masonry animate-on-scroll">
+                <div class="gallery-item"><img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/gallery1-19.jpg" alt="Gallery 1"></div>
+                <div class="gallery-item"><img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/gallery2-20.jpg" alt="Gallery 2"></div>
+                <div class="gallery-item"><img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/gallery3-15.jpg" alt="Gallery 3"></div>
+                <div class="gallery-item"><img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/gallery4-16.jpg" alt="Gallery 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section id="about" class="section-padding textured-bg">
+        <div class="container">
+            <div class="developer-card animate-on-scroll">
+                <div class="dev-logo-box">
+                    <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/022e19dd-9d1c-4edd-bdad-22186f35e1bc-yelahanka-newlaunch-co-in/assets/images/logo-1.png" alt="Developer Logo">
+                </div>
+                <div class="dev-text">
+                    <h2>About Godrej Properties</h2>
+                    <p>Godrej Properties is a leading Indian real estate developer with a legacy of quality, innovation, and customer satisfaction. A subsidiary of the esteemed Godrej Group, the company has been shaping landmark residential and commercial communities across major cities since 1990.</p>
+                    <p>With a strong commitment to sustainability and excellence, Godrej Properties has delivered over 100 projects spanning 20 million square feet across India. The company is renowned for its customer-centric approach, timely delivery, and adherence to the highest construction standards.</p>
+                    <p>Godrej Properties has won numerous prestigious awards including 'Best Developer' at various industry forums. The company's portfolio includes premium residential apartments, plotted developments, and commercial spaces in prime locations across Bengaluru, Mumbai, Pune, Delhi-NCR, and other major metropolitan cities.</p>
+                    <p>Backed by the 127-year legacy of the Godrej Group, Godrej Properties continues to set new benchmarks in the real estate industry with innovative designs, world-class amenities, and sustainable development practices that create lasting value for homeowners and investors alike.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms and Conditions Section -->
+    <section id="terms" class="terms-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Important Information</span>
+                <h2>Terms & Conditions</h2>
+            </div>
+        </div>
+        
+        <div class="terms-full-width-wrapper">
+            <div class="terms-compact-box animate-on-scroll">
+                <div class="terms-header-box">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Terms and Conditions of the Survey</h3>
+                </div>
+                
+                <div class="terms-list">
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>The prices considered above would be excluding GST, Advance Maintenance, Sinking Funds, Stamp Duty and Registration charges.</p>
+                    </div>
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>The above prices might vary based on the series chosen.</p>
+                    </div>
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>The above areas and prices are tentative and subject to change.</p>
+                    </div>
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>All specifications, amenities, and features are subject to approval from competent authorities.</p>
+                    </div>
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>This is a soft launch project. All details mentioned are indicative and subject to change.</p>
+                    </div>
+                    <div class="term-item">
+                        <span class="term-bullet">•</span>
+                        <p>Images and renderings are for representational purposes only and may differ from actual.</p>
+                    </div>
+                </div>
+                
+                <div class="terms-footer-note">
+                    <p><strong>RERA Registration:</strong> Coming Soon | <strong>Disclaimer:</strong> This website is for information purposes only. Please verify all details with our sales team before making any decision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <p class="disclaimer"><strong>Disclaimer:</strong> The content is for information purposes only and does not constitute an offer to avail of any service. Prices mentioned are subject to change without notice. This is an authorized marketing partner website.</p>
+                    <p class="rera-info">RERA: Coming Soon</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Form for Desktop -->
+        <div class="sticky-footer-form">
+            <div class="container">
+                <form id="bottomForm" class="footer-form">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mobile</label>
+                        <input type="tel" name="phone" placeholder="Mobile No" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Interest</label>
+                        <select name="configuration">
+                            <option value="3bhk">3 BHK</option>
+                            <option value="3.5bhk">3.5 BHK</option>
+                            <option value="4.5bhk">4.5 BHK</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-footer">Submit</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-cta">
+        <a href="https://wa.me/919844935531" class="cta-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <div class="side-enquire" onclick="openLeadForm()">ENQUIRE NOW</div>
+    </div>
+
+    <!-- Mobile Action Bar -->
+    <div class="mobile-nav-bar">
+        <a href="tel:+919844935531" class="m-nav-item"><i class="fas fa-phone"></i> Call</a>
+        <a href="#" class="m-nav-item m-enquire" onclick="openLeadForm()"><i class="fas fa-envelope"></i> Enquire</a>
+        <a href="https://wa.me/919844935531" class="m-nav-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="leadModal" class="modal">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeLeadForm()">&times;</span>
+            <div class="modal-header">
+                <h3>Request Details</h3>
+                <p>Register your interest to get priority access</p>
+            </div>
+            <form id="mainLeadForm">
+                <div class="modal-input">
+                    <input type="text" name="name" placeholder="Full Name*" required>
+                </div>
+                <div class="modal-input">
+                    <input type="tel" name="phone" placeholder="Mobile Number*" required>
+                </div>
+                <div class="modal-input">
+                    <select name="configuration" required>
+                        <option value="" disabled selected>Interested In*</option>
+                        <option value="3bhk">3 BHK</option>
+                        <option value="3.5bhk">3.5 BHK</option>
+                        <option value="4.5bhk">4.5 BHK</option>
+                    </select>
+                </div>
+                <div class="modal-input">
+                    <textarea name="message" placeholder="Message (Optional - Max 50 words)" maxlength="350" rows="3"></textarea>
+                    <span class="char-hint">Max 50 words</span>
+                </div>
+                <button type="submit" class="btn-modal">SUBMIT REQUEST</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

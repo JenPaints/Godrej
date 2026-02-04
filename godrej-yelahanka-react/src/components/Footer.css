@@ -1,0 +1,122 @@
+.main-footer {
+    background: var(--primary);
+    color: white;
+    padding: 4rem 0 0 0;
+}
+
+.footer-info {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+}
+
+.rera-info {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.sticky-footer-form {
+    background: #0a0d12;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-form {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.5rem;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+}
+
+.input-group input::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+.btn-footer {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.8rem 2.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-footer:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-footer:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 3rem 0 80px 0;
+    }
+
+    .footer-info {
+        padding-bottom: 2rem;
+    }
+
+    .disclaimer {
+        font-size: 0.7rem;
+    }
+
+    .footer-form {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .sticky-footer-form {
+        display: none;
+    }
+
+    .btn-footer {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 2rem 0 70px 0;
+    }
+
+    .disclaimer {
+        font-size: 0.65rem;
+    }
+
+    .rera-info {
+        font-size: 0.8rem;
+    }
+}
